@@ -1,10 +1,10 @@
 package main
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/untaldouglas/go-rest-api/internal/db"
+	
 )
 
 // Run - Responsable de inicializar el module
@@ -18,8 +18,8 @@ func Run() error {
 		return err
 	}
 
-	// Eliminar posteriormente
-	if err := db.Ping(context.Background()); err != nil {
+	if err := db.MigrateDB(); err != nil {
+		fmt.Println("Error al migrar la database")
 		return err
 	}
 
