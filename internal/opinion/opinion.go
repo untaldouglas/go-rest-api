@@ -10,8 +10,8 @@ import (
 // no compartir información sobre nuestra implementación (DB metadata por ej)
 // al exterior del module.
 var (
-	ErrFetchingOpinion = errors.New("Error en la búsqueda de la opinión por ID")
-	ErrNoImplementado  = errors.New("Funcionalidad no implementada !!")
+	ErrFetchingOpinion = errors.New("error en la búsqueda de la opinión por ID")
+	ErrNoImplementado  = errors.New("funcionalidad no implementada")
 )
 
 // Opinion - representación o estructura de la opinión
@@ -20,7 +20,7 @@ type Opinion struct {
 	ID        string
 	Asunto    string
 	Contenido string
-	Author    string
+	Autor     string
 }
 
 // Store - this interface defines all the methods

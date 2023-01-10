@@ -1,10 +1,11 @@
 package main
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/untaldouglas/go-rest-api/internal/db"
-	
+	"github.com/untaldouglas/go-rest-api/internal/opinion"
 )
 
 // Run - Responsable de inicializar el module
@@ -22,6 +23,16 @@ func Run() error {
 		fmt.Println("Error al migrar la database")
 		return err
 	}
+	// opiService - Inicializa un servicio a ser llamado 
+	// para verificar función primera de paquete de database
+	// GetOpinion.
+	// buscar en web donde crear UUID a pasar a función,
+	// crear antes registro con dicho UUID usando dBeaver por ej
+	opiService := opinion.NewService(db)
+	fmt.Println(opiService.GetOpinion(
+		context.Background(),
+		"96cab9f6-344a-44e8-8b4d-dda2a1033af5",
+	))
 
 	fmt.Println("*** Succesfully connected and pinged database !!")
 	return nil
