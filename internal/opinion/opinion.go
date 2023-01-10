@@ -28,6 +28,8 @@ type Opinion struct {
 type Store interface {
 	GetOpinion(context.Context, string) (Opinion, error)
 	PostOpinion(context.Context, Opinion) (Opinion, error)
+	DeleteOpinion(context.Context, string) error
+	UpdateOpinion(context.Context, string, Opinion) (Opinion, error)
 }
 
 // Service - is the struct on which all our
@@ -65,10 +67,17 @@ func (s *Service) PostOpinion(ctx context.Context, opi Opinion) (Opinion, error)
 	return insertedOpi, ErrNoImplementado
 }
 
-func (s *Service) ActualizarOpinion(ctx context.Context, opi Opinion) error {
-	return ErrNoImplementado
+// UpdateOpinion - actualiza registro de Opinion
+func (s *Service) UpdateOpinion(ctx context.Context, ID string, updatedOpinion Opinion) (Opinion, error) {
+	opi, err := s.Store.UpdateOpinion(ctx, ID, updatedOpinion)
+	if err != nil {
+		fmt.Println("error actualizando opinion")
+		return Opinion{}, err
+	}
+	return opi, nil
 }
 
-func (s *Service) BorrarOpinion(ctx context.Context, id string) error {
-	return ErrNoImplementado
+// DeleteOpinion - elimina registro de Opinion
+func (s *Service) DeleteOpinion(ctx context.Context, id string) error {
+	return s.Store.DeleteOpinion(ctx, id)
 }

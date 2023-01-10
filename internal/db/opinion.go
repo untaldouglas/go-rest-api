@@ -70,3 +70,43 @@ func (d *Database) PostOpinion(ctx context.Context, opi opinion.Opinion) (opinio
 	return opi, nil
 
 }
+
+func (d *Database) DeleteOpinion(ctx context.Context, id string) error {
+	_, err := d.Client.ExecContext(
+		ctx,
+		`DELETE FROM opinions where id = $1`,
+		id,
+	)
+	if err != nil {
+		return fmt.Errorf("error al eliminar opinion en la database: %w", err)
+	}
+	return nil
+}
+
+func (d *Database) UpdateOpinion(ctx context.Context, id string, opi opinion.Opinion) (opinion.Opinion, error) {
+	opiRow := OpinionRow{
+		ID:        id,
+		Asunto:    sql.NullString{String: opi.Asunto, Valid: true},
+		Contenido: sql.NullString{String: opi.Contenido, Valid: true},
+		Autor:     sql.NullString{String: opi.Autor, Valid: true},
+	}
+
+	rows, err := d.Client.NamedQueryContext(
+		ctx,
+		`UPDATA opinions SET
+		asunto = :asunto,
+		contenido = :contenido,
+		autor = :autor
+		WHERE id = :id`,
+		opiRow,
+	)
+
+	if err != nil {
+		return opinion.Opinion{}, fmt.Errorf("error al actualizar opinion: %w", err)
+	}
+	if err := rows.Close(); err != nil {
+		return opinion.Opinion{}, fmt.Errorf("error al cerrar rows: %w", err)
+	}
+
+	return convertOpinionRowToOpinion(opiRow), nil
+}
