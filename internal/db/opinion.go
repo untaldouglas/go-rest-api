@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 
+	uuid "github.com/satori/go.uuid"
 	"github.com/untaldouglas/go-rest-api/internal/opinion"
 )
 
@@ -41,4 +42,31 @@ func (d *Database) GetOpinion(
 	}
 
 	return convertOpinionRowToOpinion(opiRow), nil
+}
+
+func (d *Database) PostOpinion(ctx context.Context, opi opinion.Opinion) (opinion.Opinion, error) {
+	opi.ID = uuid.NewV4().String()
+	postRow := OpinionRow{
+		ID:        opi.ID,
+		Asunto:    sql.NullString{String: opi.Asunto, Valid: true},
+		Contenido: sql.NullString{String: opi.Contenido, Valid: true},
+		Autor:     sql.NullString{String: opi.Autor, Valid: true},
+	}
+	rows, err := d.Client.NamedQueryContext(
+		ctx,
+		`INSERT INTO opinions
+		(id, asunto, contenido, autor)
+		VALUES
+		(:id, :asunto, :contenido, :autor)`,
+		postRow,
+	)
+	if err != nil {
+		return opinion.Opinion{}, fmt.Errorf("error al insertar opinion: %w", err)
+	}
+	if err := rows.Close(); err != nil {
+		return opinion.Opinion{}, fmt.Errorf("error al cerrar rows: %w", err)
+	}
+
+	return opi, nil
+
 }

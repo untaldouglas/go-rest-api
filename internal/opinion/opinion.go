@@ -27,6 +27,7 @@ type Opinion struct {
 // that our service needs in order to operate
 type Store interface {
 	GetOpinion(context.Context, string) (Opinion, error)
+	PostOpinion(context.Context, Opinion) (Opinion, error)
 }
 
 // Service - is the struct on which all our
@@ -55,14 +56,19 @@ func (s *Service) GetOpinion(ctx context.Context, id string) (Opinion, error) {
 	return opi, nil
 }
 
+// PostOpinion - agrega opinion a la base de datos
+func (s *Service) PostOpinion(ctx context.Context, opi Opinion) (Opinion, error) {
+	insertedOpi, err := s.Store.PostOpinion(ctx, opi)
+	if err != nil {
+		return Opinion{}, err
+	}
+	return insertedOpi, ErrNoImplementado
+}
+
 func (s *Service) ActualizarOpinion(ctx context.Context, opi Opinion) error {
 	return ErrNoImplementado
 }
 
 func (s *Service) BorrarOpinion(ctx context.Context, id string) error {
 	return ErrNoImplementado
-}
-
-func (s *Service) CrearOpinion(ctx context.Context, opi Opinion) (Opinion, error) {
-	return Opinion{}, ErrNoImplementado
 }
