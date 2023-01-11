@@ -12,8 +12,6 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type OpinionService interface{}
-
 type Handler struct {
 	Router  *mux.Router
 	Service OpinionService
@@ -39,6 +37,12 @@ func (h *Handler) mapRoutes() {
 	h.Router.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello mundo")
 	})
+
+	h.Router.HandleFunc("/api/v1/opinion", h.PostOpinion).Methods("POST")
+	h.Router.HandleFunc("/api/v1/opinion/{id}", h.GetOpinion).Methods("GET")
+	h.Router.HandleFunc("/api/v1/opinion/{id}", h.UpdateOpinion).Methods("PUT")
+	h.Router.HandleFunc("/api/v1/opinion/{id}", h.DeleteOpinion).Methods("DELETE")
+
 }
 
 func (h *Handler) Serve() error {
