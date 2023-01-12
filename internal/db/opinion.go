@@ -29,6 +29,13 @@ func (d *Database) GetOpinion(
 	ctx context.Context, uuid string,
 ) (opinion.Opinion, error) {
 	var opiRow OpinionRow
+
+	// Testing the TimeoutMiddleware funcion
+	// _, err := d.Client.ExecContext(ctx, "SELECT pg_sleep(16)")
+	// if err != nil {
+	// 	return opinion.Opinion{}, err
+	// }
+
 	row := d.Client.QueryRowContext(
 		ctx,
 		`SELECT id, asunto, contenido,autor
@@ -36,6 +43,8 @@ func (d *Database) GetOpinion(
 	WHERE id = $1`,
 		uuid,
 	)
+	// modificación temporal por testing de TimeoutMiddleware
+	//err = row.Scan(&opiRow.ID, &opiRow.Asunto, &opiRow.Contenido, &opiRow.Autor)
 	err := row.Scan(&opiRow.ID, &opiRow.Asunto, &opiRow.Contenido, &opiRow.Autor)
 	if err != nil {
 		return opinion.Opinion{}, fmt.Errorf("error al leer la opinion por uuid")
@@ -93,7 +102,7 @@ func (d *Database) UpdateOpinion(ctx context.Context, id string, opi opinion.Opi
 
 	rows, err := d.Client.NamedQueryContext(
 		ctx,
-		`UPDATA opinions SET
+		`UPDATE opinions SET
 		asunto = :asunto,
 		contenido = :contenido,
 		autor = :autor

@@ -81,3 +81,5 @@ func (s *Service) UpdateOpinion(ctx context.Context, ID string, updatedOpinion O
 func (s *Service) DeleteOpinion(ctx context.Context, id string) error {
 	return s.Store.DeleteOpinion(ctx, id)
 }
+
+
