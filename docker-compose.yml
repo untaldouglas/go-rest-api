@@ -14,7 +14,8 @@ services:
       - fullstack
     volumes:
       - database_postgres:/var/lib/postgresql/data
-
+  
+ 
   api:
     build: .
     container_name: "opiniones-rest-api"
@@ -30,8 +31,7 @@ services:
       - "8080:8080"
     depends_on:
       - db
-    #links:
-    #  - db
+      
     networks:
       - fullstack
 

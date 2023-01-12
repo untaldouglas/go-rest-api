@@ -64,7 +64,7 @@ func (s *Service) PostOpinion(ctx context.Context, opi Opinion) (Opinion, error)
 	if err != nil {
 		return Opinion{}, err
 	}
-	return insertedOpi, ErrNoImplementado
+	return insertedOpi, nil
 }
 
 // UpdateOpinion - actualiza registro de Opinion
@@ -81,5 +81,3 @@ func (s *Service) UpdateOpinion(ctx context.Context, ID string, updatedOpinion O
 func (s *Service) DeleteOpinion(ctx context.Context, id string) error {
 	return s.Store.DeleteOpinion(ctx, id)
 }
-
-
