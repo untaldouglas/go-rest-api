@@ -37,8 +37,8 @@ func NewHandler(service OpinionService) *Handler {
 }
 
 func (h *Handler) mapRoutes() {
-	h.Router.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello mundo")
+	h.Router.HandleFunc("/alive", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "API is alive !!")
 	})
 	// Aseguramos el handler PostOpinion con
 	// middleware de autenticación con JWT
