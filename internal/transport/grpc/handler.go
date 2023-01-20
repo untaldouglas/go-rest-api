@@ -6,7 +6,7 @@ import (
 	"net"
 
 	"github.com/untaldouglas/go-rest-api/internal/opinion"
-	opi "github.com/untaldouglas/go-rest-api/repositorio-protos/opinion/V1"
+	opi "github.com/untaldouglas/go-rest-api/repositorio-protos/opinion/v1"
 	"google.golang.org/grpc"
 )
 
@@ -39,7 +39,7 @@ func (h Handler) Serve() error {
 	}
 
 	grpcServer := grpc.NewServer()
-	opi.RegisterOpinionServiceServer(grpcServer, &h)
+	opi.RegisterOpinionServicioServer(grpcServer, &h)
 
 	if err := grpcServer.Serve(listento); err != nil {
 		log.Printf("failed to serve grpc: %s\n", err)
@@ -53,8 +53,8 @@ func (h Handler) GetOpinion(ctx context.Context, req *opi.GetOpinionRequest) (*o
 	return &opi.GetOpinionResponse{}, nil
 }
 
-func (h Handler) PostOpinion(ctx context.Context, req *opi.AddOpinionRequest) (*opi.AddOpinionResponse, error) {
-	return &opi.AddOpinionResponse{}, nil
+func (h Handler) PostOpinion(ctx context.Context, req *opi.PostOpinionRequest) (*opi.PostOpinionResponse, error) {
+	return &opi.PostOpinionResponse{}, nil
 }
 
 func (h Handler) DeleteOpinion(ctx context.Context, req *opi.DeleteOpinionRequest) (*opi.DeleteOpinionResponse, error) {
