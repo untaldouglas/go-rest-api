@@ -6,7 +6,7 @@ import (
 	"net"
 
 	"github.com/untaldouglas/go-rest-api/internal/opinion"
-	"github.com/untaldouglas/go-rest-api/repositorio-protos/opinion/v1"
+	opi "github.com/untaldouglas/go-rest-api/repositorio-protos/opinion/V1"
 	"google.golang.org/grpc"
 )
 
