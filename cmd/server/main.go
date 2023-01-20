@@ -5,6 +5,7 @@ import (
 
 	"github.com/untaldouglas/go-rest-api/internal/db"
 	"github.com/untaldouglas/go-rest-api/internal/opinion"
+	"github.com/untaldouglas/go-rest-api/internal/transport/grpc"
 	transportHttp "github.com/untaldouglas/go-rest-api/internal/transport/http"
 )
 
@@ -25,8 +26,14 @@ func Run() error {
 	}
 	// opiService - Inicializa un servicio a ser llamado
 	opiService := opinion.NewService(db)
+	// http canal
 	httpHandler := transportHttp.NewHandler(opiService)
 	if err := httpHandler.Serve(); err != nil {
+		return err
+	}
+	// grpc canal
+	grpcHandler := grpc.New(opiService)
+	if err := grpcHandler.Serve(); err != nil {
 		return err
 	}
 

@@ -9,7 +9,7 @@ message Opinion {
 }
 service OpinionServicio {
     rpc GetOpinion(GetOpinionRequest) returns (GetOpinionResponse);
-    rpc AddOpinion(AddOpinionRequest) returns (AddOpinionResponse);
+    rpc PostOpinion(PostOpinionRequest) returns (PostOpinionResponse);
     rpc DeleteOpinion(DeleteOpinionRequest) returns (DeleteOpinionResponse);
 }
 
@@ -22,12 +22,12 @@ message GetOpinionResponse {
     Opinion opinion = 1;
 }
 
-// -- Add Opinion Message types
-message AddOpinionRequest {
+// -- Post Opinion Message types
+message PostOpinionRequest {
     Opinion opinion = 1;
 }
 
-message AddOpinionResponse {
+message PostOpinionResponse {
     Opinion opinion = 1; 
 }
 

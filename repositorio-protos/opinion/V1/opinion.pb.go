@@ -158,79 +158,79 @@ func (m *GetOpinionResponse) GetOpinion() *Opinion {
 	return nil
 }
 
-// -- Add Opinion Message types
-type AddOpinionRequest struct {
+// -- Post Opinion Message types
+type PostOpinionRequest struct {
 	Opinion              *Opinion `protobuf:"bytes,1,opt,name=opinion,proto3" json:"opinion,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddOpinionRequest) Reset()         { *m = AddOpinionRequest{} }
-func (m *AddOpinionRequest) String() string { return proto.CompactTextString(m) }
-func (*AddOpinionRequest) ProtoMessage()    {}
-func (*AddOpinionRequest) Descriptor() ([]byte, []int) {
+func (m *PostOpinionRequest) Reset()         { *m = PostOpinionRequest{} }
+func (m *PostOpinionRequest) String() string { return proto.CompactTextString(m) }
+func (*PostOpinionRequest) ProtoMessage()    {}
+func (*PostOpinionRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_e78773aa03024be2, []int{3}
 }
 
-func (m *AddOpinionRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_AddOpinionRequest.Unmarshal(m, b)
+func (m *PostOpinionRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PostOpinionRequest.Unmarshal(m, b)
 }
-func (m *AddOpinionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_AddOpinionRequest.Marshal(b, m, deterministic)
+func (m *PostOpinionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PostOpinionRequest.Marshal(b, m, deterministic)
 }
-func (m *AddOpinionRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_AddOpinionRequest.Merge(m, src)
+func (m *PostOpinionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PostOpinionRequest.Merge(m, src)
 }
-func (m *AddOpinionRequest) XXX_Size() int {
-	return xxx_messageInfo_AddOpinionRequest.Size(m)
+func (m *PostOpinionRequest) XXX_Size() int {
+	return xxx_messageInfo_PostOpinionRequest.Size(m)
 }
-func (m *AddOpinionRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_AddOpinionRequest.DiscardUnknown(m)
+func (m *PostOpinionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_PostOpinionRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_AddOpinionRequest proto.InternalMessageInfo
+var xxx_messageInfo_PostOpinionRequest proto.InternalMessageInfo
 
-func (m *AddOpinionRequest) GetOpinion() *Opinion {
+func (m *PostOpinionRequest) GetOpinion() *Opinion {
 	if m != nil {
 		return m.Opinion
 	}
 	return nil
 }
 
-type AddOpinionResponse struct {
+type PostOpinionResponse struct {
 	Opinion              *Opinion `protobuf:"bytes,1,opt,name=opinion,proto3" json:"opinion,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddOpinionResponse) Reset()         { *m = AddOpinionResponse{} }
-func (m *AddOpinionResponse) String() string { return proto.CompactTextString(m) }
-func (*AddOpinionResponse) ProtoMessage()    {}
-func (*AddOpinionResponse) Descriptor() ([]byte, []int) {
+func (m *PostOpinionResponse) Reset()         { *m = PostOpinionResponse{} }
+func (m *PostOpinionResponse) String() string { return proto.CompactTextString(m) }
+func (*PostOpinionResponse) ProtoMessage()    {}
+func (*PostOpinionResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_e78773aa03024be2, []int{4}
 }
 
-func (m *AddOpinionResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_AddOpinionResponse.Unmarshal(m, b)
+func (m *PostOpinionResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PostOpinionResponse.Unmarshal(m, b)
 }
-func (m *AddOpinionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_AddOpinionResponse.Marshal(b, m, deterministic)
+func (m *PostOpinionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PostOpinionResponse.Marshal(b, m, deterministic)
 }
-func (m *AddOpinionResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_AddOpinionResponse.Merge(m, src)
+func (m *PostOpinionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PostOpinionResponse.Merge(m, src)
 }
-func (m *AddOpinionResponse) XXX_Size() int {
-	return xxx_messageInfo_AddOpinionResponse.Size(m)
+func (m *PostOpinionResponse) XXX_Size() int {
+	return xxx_messageInfo_PostOpinionResponse.Size(m)
 }
-func (m *AddOpinionResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_AddOpinionResponse.DiscardUnknown(m)
+func (m *PostOpinionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_PostOpinionResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_AddOpinionResponse proto.InternalMessageInfo
+var xxx_messageInfo_PostOpinionResponse proto.InternalMessageInfo
 
-func (m *AddOpinionResponse) GetOpinion() *Opinion {
+func (m *PostOpinionResponse) GetOpinion() *Opinion {
 	if m != nil {
 		return m.Opinion
 	}
@@ -320,8 +320,8 @@ func init() {
 	proto.RegisterType((*Opinion)(nil), "opinion.Opinion")
 	proto.RegisterType((*GetOpinionRequest)(nil), "opinion.GetOpinionRequest")
 	proto.RegisterType((*GetOpinionResponse)(nil), "opinion.GetOpinionResponse")
-	proto.RegisterType((*AddOpinionRequest)(nil), "opinion.AddOpinionRequest")
-	proto.RegisterType((*AddOpinionResponse)(nil), "opinion.AddOpinionResponse")
+	proto.RegisterType((*PostOpinionRequest)(nil), "opinion.PostOpinionRequest")
+	proto.RegisterType((*PostOpinionResponse)(nil), "opinion.PostOpinionResponse")
 	proto.RegisterType((*DeleteOpinionRequest)(nil), "opinion.DeleteOpinionRequest")
 	proto.RegisterType((*DeleteOpinionResponse)(nil), "opinion.DeleteOpinionResponse")
 }
@@ -329,24 +329,25 @@ func init() {
 func init() { proto.RegisterFile("opinion/V1/opinion.proto", fileDescriptor_e78773aa03024be2) }
 
 var fileDescriptor_e78773aa03024be2 = []byte{
-	// 272 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x92, 0x4f, 0x4b, 0x84, 0x50,
-	0x14, 0xc5, 0xd1, 0xc8, 0xa1, 0x13, 0xfd, 0x99, 0xcb, 0x34, 0x88, 0x51, 0x84, 0x6d, 0xa2, 0xc5,
-	0x48, 0xd3, 0x07, 0x68, 0x8a, 0x86, 0xd9, 0x15, 0x4c, 0xd0, 0xde, 0xf2, 0x2d, 0x1e, 0x84, 0xcf,
-	0x7c, 0xd7, 0xbe, 0x76, 0x5f, 0x21, 0xd0, 0xab, 0x63, 0x6a, 0x8b, 0x6a, 0xf7, 0xce, 0xbb, 0x87,
-	0xdf, 0x3d, 0x1e, 0x1f, 0x7c, 0x93, 0xe9, 0x54, 0x9b, 0x34, 0x7a, 0xbe, 0x8a, 0xe4, 0x38, 0xcb,
-	0x72, 0xc3, 0x86, 0x46, 0x22, 0xc3, 0x15, 0x46, 0x8f, 0xd5, 0x91, 0xf6, 0xe1, 0xea, 0xc4, 0x77,
-	0xce, 0x9c, 0x8b, 0x9d, 0xb5, 0xab, 0x13, 0x9a, 0xc2, 0x8b, 0x6d, 0x91, 0xb2, 0xf1, 0xdd, 0xf2,
-	0x4e, 0x14, 0x4d, 0xb0, 0x1d, 0x17, 0x6c, 0x72, 0x7f, 0xab, 0xbc, 0xae, 0x44, 0x78, 0x8e, 0xf1,
-	0x4a, 0xb1, 0xb0, 0xd6, 0xea, 0xbd, 0x50, 0x96, 0xbb, 0xc8, 0x70, 0x01, 0x6a, 0x9b, 0x6c, 0x66,
-	0x52, 0xab, 0xe8, 0x12, 0x75, 0x9c, 0xd2, 0xba, 0x3b, 0x3f, 0x9c, 0xd5, 0x69, 0x6b, 0x6b, 0x93,
-	0xf7, 0x06, 0xe3, 0xdb, 0x24, 0xe9, 0xac, 0xf9, 0x0d, 0x60, 0x01, 0x6a, 0x03, 0xfe, 0x10, 0xe1,
-	0x0e, 0x93, 0x7b, 0xf5, 0xa6, 0x58, 0xfd, 0x23, 0x45, 0x84, 0xa3, 0x0e, 0x43, 0x82, 0x4c, 0xe1,
-	0x59, 0x8e, 0xb9, 0xb0, 0xd2, 0x9a, 0xa8, 0xf9, 0xa7, 0x83, 0x03, 0xf1, 0x3e, 0xa9, 0xfc, 0x43,
-	0xbf, 0x6a, 0x43, 0x4b, 0x60, 0xd3, 0x26, 0x05, 0xcd, 0xb6, 0xde, 0x7f, 0x08, 0x8e, 0x07, 0x67,
-	0xb2, 0x72, 0x09, 0x6c, 0x1a, 0x69, 0x61, 0x7a, 0x3d, 0xb7, 0x30, 0x03, 0x15, 0x3e, 0x60, 0xef,
-	0xdb, 0x27, 0xd1, 0x49, 0xe3, 0x1e, 0xaa, 0x2b, 0x38, 0xfd, 0x69, 0x5c, 0xf1, 0x5e, 0xbc, 0xf2,
-	0xa5, 0x5e, 0x7f, 0x05, 0x00, 0x00, 0xff, 0xff, 0xda, 0xc5, 0xfa, 0xc7, 0xc5, 0x02, 0x00, 0x00,
+	// 275 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x92, 0xcd, 0x4e, 0x83, 0x40,
+	0x14, 0x85, 0x03, 0x46, 0x1a, 0x4f, 0xe3, 0xdf, 0xb5, 0x36, 0x04, 0x7f, 0x62, 0x70, 0x63, 0x5c,
+	0x94, 0x58, 0x5f, 0xa0, 0x1a, 0x4d, 0x5d, 0xa9, 0xa9, 0x89, 0x7b, 0xb4, 0xb3, 0x98, 0xc4, 0x70,
+	0x91, 0x19, 0x7c, 0x70, 0x9f, 0xc0, 0x04, 0x2e, 0xb4, 0x05, 0x5c, 0x68, 0x77, 0x73, 0xe6, 0x9e,
+	0x7c, 0xf7, 0x70, 0x18, 0xf8, 0x9c, 0xea, 0x44, 0x73, 0x12, 0xbd, 0x5e, 0x45, 0x72, 0x1c, 0xa5,
+	0x19, 0x5b, 0xa6, 0x9e, 0xc8, 0x70, 0x8a, 0xde, 0x53, 0x79, 0xa4, 0x1d, 0xb8, 0x7a, 0xee, 0x3b,
+	0x67, 0xce, 0xc5, 0xd6, 0xcc, 0xd5, 0x73, 0x1a, 0xc2, 0x8b, 0x4d, 0x9e, 0x58, 0xf6, 0xdd, 0xe2,
+	0x4e, 0x14, 0x0d, 0xb0, 0x19, 0xe7, 0x96, 0x33, 0x7f, 0xa3, 0xb8, 0x2e, 0x45, 0x78, 0x8e, 0xfd,
+	0xa9, 0xb2, 0xc2, 0x9a, 0xa9, 0xcf, 0x5c, 0x19, 0xdb, 0x44, 0x86, 0x13, 0xd0, 0xb2, 0xc9, 0xa4,
+	0x9c, 0x18, 0x45, 0x97, 0xa8, 0xe2, 0x14, 0xd6, 0xfe, 0x78, 0x6f, 0x54, 0xa5, 0xad, 0xac, 0x75,
+	0xde, 0x09, 0xe8, 0x99, 0x4d, 0x73, 0xcf, 0x5f, 0x08, 0x37, 0x38, 0x58, 0x21, 0xfc, 0x23, 0xc4,
+	0x2d, 0x06, 0x77, 0xea, 0x43, 0x59, 0xb5, 0x46, 0x8c, 0x08, 0x87, 0x0d, 0x86, 0x04, 0x19, 0xc2,
+	0x33, 0x36, 0xb6, 0xb9, 0x91, 0xde, 0x44, 0x8d, 0xbf, 0x1d, 0xec, 0x8a, 0xf7, 0x45, 0x65, 0x5f,
+	0xfa, 0x5d, 0x33, 0xdd, 0x03, 0x8b, 0x3e, 0x29, 0xa8, 0xb7, 0xb5, 0xfe, 0x44, 0x70, 0xd4, 0x39,
+	0x93, 0x95, 0x0f, 0xe8, 0x2f, 0x55, 0x42, 0x0b, 0x6f, 0xbb, 0xea, 0xe0, 0xb8, 0x7b, 0x28, 0xa4,
+	0x47, 0x6c, 0xaf, 0x7c, 0x15, 0x9d, 0xd4, 0xf6, 0xae, 0xc6, 0x82, 0xd3, 0xdf, 0xc6, 0x25, 0xef,
+	0xcd, 0x2b, 0x9e, 0xeb, 0xf5, 0x4f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x77, 0xcc, 0xfd, 0x65, 0xca,
+	0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -362,7 +363,7 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type OpinionServicioClient interface {
 	GetOpinion(ctx context.Context, in *GetOpinionRequest, opts ...grpc.CallOption) (*GetOpinionResponse, error)
-	AddOpinion(ctx context.Context, in *AddOpinionRequest, opts ...grpc.CallOption) (*AddOpinionResponse, error)
+	PostOpinion(ctx context.Context, in *PostOpinionRequest, opts ...grpc.CallOption) (*PostOpinionResponse, error)
 	DeleteOpinion(ctx context.Context, in *DeleteOpinionRequest, opts ...grpc.CallOption) (*DeleteOpinionResponse, error)
 }
 
@@ -383,9 +384,9 @@ func (c *opinionServicioClient) GetOpinion(ctx context.Context, in *GetOpinionRe
 	return out, nil
 }
 
-func (c *opinionServicioClient) AddOpinion(ctx context.Context, in *AddOpinionRequest, opts ...grpc.CallOption) (*AddOpinionResponse, error) {
-	out := new(AddOpinionResponse)
-	err := c.cc.Invoke(ctx, "/opinion.OpinionServicio/AddOpinion", in, out, opts...)
+func (c *opinionServicioClient) PostOpinion(ctx context.Context, in *PostOpinionRequest, opts ...grpc.CallOption) (*PostOpinionResponse, error) {
+	out := new(PostOpinionResponse)
+	err := c.cc.Invoke(ctx, "/opinion.OpinionServicio/PostOpinion", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -404,7 +405,7 @@ func (c *opinionServicioClient) DeleteOpinion(ctx context.Context, in *DeleteOpi
 // OpinionServicioServer is the server API for OpinionServicio service.
 type OpinionServicioServer interface {
 	GetOpinion(context.Context, *GetOpinionRequest) (*GetOpinionResponse, error)
-	AddOpinion(context.Context, *AddOpinionRequest) (*AddOpinionResponse, error)
+	PostOpinion(context.Context, *PostOpinionRequest) (*PostOpinionResponse, error)
 	DeleteOpinion(context.Context, *DeleteOpinionRequest) (*DeleteOpinionResponse, error)
 }
 
@@ -415,8 +416,8 @@ type UnimplementedOpinionServicioServer struct {
 func (*UnimplementedOpinionServicioServer) GetOpinion(ctx context.Context, req *GetOpinionRequest) (*GetOpinionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOpinion not implemented")
 }
-func (*UnimplementedOpinionServicioServer) AddOpinion(ctx context.Context, req *AddOpinionRequest) (*AddOpinionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AddOpinion not implemented")
+func (*UnimplementedOpinionServicioServer) PostOpinion(ctx context.Context, req *PostOpinionRequest) (*PostOpinionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PostOpinion not implemented")
 }
 func (*UnimplementedOpinionServicioServer) DeleteOpinion(ctx context.Context, req *DeleteOpinionRequest) (*DeleteOpinionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteOpinion not implemented")
@@ -444,20 +445,20 @@ func _OpinionServicio_GetOpinion_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OpinionServicio_AddOpinion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddOpinionRequest)
+func _OpinionServicio_PostOpinion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PostOpinionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OpinionServicioServer).AddOpinion(ctx, in)
+		return srv.(OpinionServicioServer).PostOpinion(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/opinion.OpinionServicio/AddOpinion",
+		FullMethod: "/opinion.OpinionServicio/PostOpinion",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpinionServicioServer).AddOpinion(ctx, req.(*AddOpinionRequest))
+		return srv.(OpinionServicioServer).PostOpinion(ctx, req.(*PostOpinionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -489,8 +490,8 @@ var _OpinionServicio_serviceDesc = grpc.ServiceDesc{
 			Handler:    _OpinionServicio_GetOpinion_Handler,
 		},
 		{
-			MethodName: "AddOpinion",
-			Handler:    _OpinionServicio_AddOpinion_Handler,
+			MethodName: "PostOpinion",
+			Handler:    _OpinionServicio_PostOpinion_Handler,
 		},
 		{
 			MethodName: "DeleteOpinion",
