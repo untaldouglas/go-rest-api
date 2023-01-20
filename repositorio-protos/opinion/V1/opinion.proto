@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package opinion;
+
+message Opinion {
+    string id = 1;
+    string asunto = 2;
+    string autor = 3;
+}
+service OpinionServicio {
+    rpc GetOpinion(GetOpinionRequest) returns (GetOpinionResponse);
+    rpc AddOpinion(AddOpinionRequest) returns (AddOpinionResponse);
+    rpc DeleteOpinion(DeleteOpinionRequest) returns (DeleteOpinionResponse);
+}
+
+// -- Get Opinion Messages types 
+message GetOpinionRequest {
+    string id = 1;
+}
+
+message GetOpinionResponse {
+    Opinion opinion = 1;
+}
+
+// -- Add Opinion Message types
+message AddOpinionRequest {
+    Opinion opinion = 1;
+}
+
+message AddOpinionResponse {
+    Opinion opinion = 1; 
+}
+
+// -- Delete Opinion Message types
+message DeleteOpinionRequest {
+    Opinion opinion = 1;
+}
+
+message DeleteOpinionResponse {
+    string status = 1;
+}
