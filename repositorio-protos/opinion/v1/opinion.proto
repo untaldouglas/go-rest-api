@@ -5,7 +5,8 @@ package opinion;
 message Opinion {
     string id = 1;
     string asunto = 2;
-    string autor = 3;
+    string contenido =3;
+    string autor = 4;
 }
 service OpinionServicio {
     rpc GetOpinion(GetOpinionRequest) returns (GetOpinionResponse);

@@ -50,7 +50,16 @@ func (h Handler) Serve() error {
 }
 
 func (h Handler) GetOpinion(ctx context.Context, req *opi.GetOpinionRequest) (*opi.GetOpinionResponse, error) {
-	return &opi.GetOpinionResponse{}, nil
+	log.Print("get opinion gRPC endpoint")
+	// mock the return data
+	return &opi.GetOpinionResponse{
+		Opinion: &opi.Opinion{
+			Id:        "MOCK-GRPC-001",
+			Asunto:    "gRPC Learning",
+			Contenido: "gRPC rocks !!!",
+			Autor:     "handler grpc",
+		},
+	}, nil
 }
 
 func (h Handler) PostOpinion(ctx context.Context, req *opi.PostOpinionRequest) (*opi.PostOpinionResponse, error) {
